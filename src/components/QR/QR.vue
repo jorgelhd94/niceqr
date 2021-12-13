@@ -3,25 +3,26 @@
 </template>
 
 <script>
-import QRCodeStyling from 'qr-code-styling';
 
 export default {
   name: 'QR',
+  props: {
+    qrCode: Object,
+  },
   mounted: function () {
     this.qrCode.append(this.$refs['qrCode']);
-    document.getElementsByTagName('canvas')[0].classList.add('mx-auto');
+    this.setClassToQR();
   },
   watch: {
     ['options.data']: function () {
       this.qrCode.update(this.options);
     },
   },
-  data() {
-    return {
-      qrCode: new QRCodeStyling({
-        data: 'http://qr-code-styling.com',
-      }),
-    };
+  methods: {
+    setClassToQR() {
+      document.getElementsByTagName('svg')[0].classList.add('mx-auto');
+      document.getElementsByTagName('svg')[0].classList.add('xl:ml-auto');
+    },
   },
 };
 </script>
