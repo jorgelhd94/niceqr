@@ -1,5 +1,23 @@
 <template>
   <div>
+    <!-- Text -->
+    <div class="relative p-6">
+      <label for="text" class="text-gray-700">
+        Content
+        <span class="text-red-500 required-dot"> * </span>
+      </label>
+      <input
+        type="text"
+        id="text"
+        class="mt-2 rounded-lg border-transparent flex-1 appearance-none border border-gray-300 w-full py-2 px-4 bg-white text-gray-700 placeholder-gray-400 shadow-sm text-base focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-transparent"
+        name="text"
+        placeholder="Your Text"
+        :value="content"
+        @input="updateData"
+      />
+    </div>
+
+    <!-- Options -->
     <accordion-item
       title="Text"
       :open="listAccordion[0]"
@@ -54,12 +72,10 @@
 </template>
 
 <script>
+import { mapState } from 'vuex';
 import AccordionItem from '@/components/AccordionItem/AccordionItem.vue';
 export default {
   name: 'ControlPanel',
-  props: {
-    options: Object,
-  },
   data() {
     return {
       listAccordion: [false, false, false],
@@ -67,6 +83,11 @@ export default {
   },
   components: {
     AccordionItem,
+  },
+  computed: {
+    ...mapState({
+      content: (state) => state.options.data,
+    }),
   },
   methods: {
     toogle(index, open) {
@@ -76,6 +97,9 @@ export default {
         this.listAccordion = new Array(this.listAccordion.length).fill(false);
         this.listAccordion[index] = true;
       }
+    },
+    updateData(e) {
+      this.$store.commit('updateData', e.target.value);
     },
   },
 };
