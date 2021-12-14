@@ -1,5 +1,5 @@
 <template>
-  <div id="qr-code" ref="qrCode"></div>
+  <div class="overflow-x-auto" id="qr-code" ref="qrCode"></div>
 </template>
 
 <script>

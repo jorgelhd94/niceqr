@@ -4,8 +4,8 @@ export default createStore({
   state() {
     return {
       options: {
-        width: 300,
-        height: 300,
+        width: 250,
+        height: 250,
         type: 'svg',
         data: 'Enter your text here',
         image: '/favicon.ico',
@@ -60,6 +60,7 @@ export default createStore({
     },
     updateDots(state, data) {
       state.options.dotsOptions.type = data.type;
+      state.options.dotsOptions.color = data.color;
     },
   },
   getters: {},

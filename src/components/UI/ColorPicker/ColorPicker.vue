@@ -1,8 +1,7 @@
 <template>
   <div>
-    <p>Color</p>
     <color-input
-      class="mt-2"
+      class="my-2 ml-2"
       v-model="colorData"
       format="hex string"
       position="top"
