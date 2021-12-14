@@ -7,7 +7,7 @@
       alt=""
       srcset=""
     />
-    <h2 class="text-2xl">A beautiful QR Code generator</h2>
+    <h2 class="text-xl">A beautiful QR Code generator</h2>
   </div>
 </template>
 

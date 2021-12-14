@@ -10,7 +10,8 @@
     </div>
     <!-- Content -->
     <div
-      class="accordion-content px-5 pt-0 overflow-hidden max-h-0"
+      class="accordion-content px-5 pt-0 max-h-0"
+      :style="{ overflow: overflow }"
       ref="content"
     >
       <slot></slot>
@@ -25,14 +26,24 @@ export default {
     title: String,
     open: Boolean,
   },
+  data() {
+    return {
+      overflow: 'hidden',
+    };
+  },
   watch: {
     open() {
       if (this.open) {
         this.$refs['content'].style.maxHeight = `${
           this.$refs['content'].scrollHeight + 32
         }px`;
+
+        setTimeout(() => {
+          this.overflow = 'visible';
+        }, 300);
       } else {
         this.$refs['content'].style.maxHeight = `0px`;
+        this.overflow = 'hidden';
       }
     },
   },
@@ -46,6 +57,6 @@ export default {
 
 <style scoped>
 .accordion-content {
-  transition: max-height 0.3s ease-out, padding 0.3s ease;
+  transition: max-height 0.2s ease-out, padding 0.3s ease;
 }
 </style>

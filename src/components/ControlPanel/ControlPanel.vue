@@ -86,7 +86,7 @@
 
 <script>
 import { mapState } from 'vuex';
-import AccordionItem from '@/components/AccordionItem/AccordionItem.vue';
+import AccordionItem from '@/components/UI/Accordion/AccordionItem/AccordionItem.vue';
 import DotsControl from './Controls/DotsControl.vue';
 
 export default {
