@@ -7,19 +7,14 @@ export default createStore({
         width: 300,
         height: 300,
         type: 'svg',
-        data: 'JCode Studio',
+        data: 'Enter your text here',
         image: '/favicon.ico',
-        margin: 10,
-        qrOptions: {
-          typeNumber: 0,
-          mode: 'Byte',
-          errorCorrectionLevel: 'Q',
-        },
+        // margin: 10,
         imageOptions: {
           hideBackgroundDots: true,
           imageSize: 0.4,
           margin: 20,
-          crossOrigin: 'anonymous',
+          // crossOrigin: 'anonymous',
         },
         dotsOptions: {
           color: '#41b583',
@@ -62,6 +57,9 @@ export default createStore({
   mutations: {
     updateData(state, data) {
       state.options.data = data;
+    },
+    updateDots(state, data) {
+      state.options.dotsOptions.type = data.type;
     },
   },
   getters: {},

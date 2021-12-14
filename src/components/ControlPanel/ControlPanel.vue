@@ -18,8 +18,10 @@
     </div>
 
     <!-- Options -->
+
+    <!-- Background -->
     <accordion-item
-      title="Text"
+      title="Background"
       :open="listAccordion[0]"
       @toogle="toogle(0, $event)"
     >
@@ -35,10 +37,20 @@
       </button>
     </accordion-item>
 
+    <!-- Dots -->
     <accordion-item
-      title="Colors"
+      title="Dots"
       :open="listAccordion[1]"
       @toogle="toogle(1, $event)"
+    >
+      <dots-control />
+    </accordion-item>
+
+    <!-- Corners -->
+    <accordion-item
+      title="Corners"
+      :open="listAccordion[2]"
+      @toogle="toogle(2, $event)"
     >
       <p class="leading-6 font-light pl-9 text-justify">
         Our asked sex point her she seems. New plenty she horses parish design
@@ -52,10 +64,11 @@
       </button>
     </accordion-item>
 
+    <!-- Logo -->
     <accordion-item
-      title="Colors"
-      :open="listAccordion[2]"
-      @toogle="toogle(2, $event)"
+      title="Logo"
+      :open="listAccordion[3]"
+      @toogle="toogle(3, $event)"
     >
       <p class="leading-6 font-light pl-9 text-justify">
         Our asked sex point her she seems. New plenty she horses parish design
@@ -74,15 +87,18 @@
 <script>
 import { mapState } from 'vuex';
 import AccordionItem from '@/components/AccordionItem/AccordionItem.vue';
+import DotsControl from './Controls/DotsControl.vue';
+
 export default {
   name: 'ControlPanel',
   data() {
     return {
-      listAccordion: [false, false, false],
+      listAccordion: new Array(4).fill(false),
     };
   },
   components: {
     AccordionItem,
+    DotsControl,
   },
   computed: {
     ...mapState({
