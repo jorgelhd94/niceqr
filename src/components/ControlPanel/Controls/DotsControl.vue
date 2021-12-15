@@ -16,19 +16,22 @@
         </select>
       </label>
     </div>
+
     <!-- Color & Gradient -->
     <div class="flex-1 m-2">
       <!-- tab-options -->
       <div class="flex flex-nowrap justify-start">
         <rounded-button
           text="Single Color"
-          :select="singleColor"
-          @click="singleColor = !singleColor"
+          design="single"
+          :select="singleColor === true"
+          @click="singleColor = true"
         />
         <rounded-button
           text="Gradient"
-          :select="!singleColor"
-          @click="singleColor = !singleColor"
+          design="gradient"
+          :select="singleColor === false"
+          @click="singleColor = false"
         />
       </div>
 
@@ -37,9 +40,8 @@
         <color-picker :color="options.color" @color-change="colorChange" />
       </div>
       <div v-else>
-        <div class="flex flex-nowrap justify-start">
-          <color-picker :color="options.color" @color-change="colorChange" />
-          <color-picker :color="options.color" @color-change="colorChange" />
+        <div class="flex flex-nowrap justify-start pt-2">
+          <gradient-picker/>
         </div>
       </div>
     </div>
@@ -48,12 +50,14 @@
 
 <script>
 import ColorPicker from '@/components/UI/ColorPicker/ColorPicker.vue';
+import GradientPicker from '@/components/UI/ColorPicker/GradientPicker.vue';
 import RoundedButton from '@/components/UI/RoundedButton/RoundedButton.vue';
 
 export default {
   name: 'DotsControl',
   components: {
     ColorPicker,
+    GradientPicker,
     RoundedButton,
   },
   data() {

@@ -35,7 +35,7 @@ export default {
     open() {
       if (this.open) {
         this.$refs['content'].style.maxHeight = `${
-          this.$refs['content'].scrollHeight + 64
+          this.$refs['content'].scrollHeight + 96
         }px`;
 
         setTimeout(() => {

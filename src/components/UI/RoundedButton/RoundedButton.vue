@@ -12,12 +12,18 @@ export default {
   name: 'RoundedButton',
   props: {
     text: String,
+    design: String, // single, gradient
     select: Boolean,
+  },
+  mounted() {
+    this.selected = this.design === 'single' ? this.single : this.gradient;
   },
   data() {
     return {
-      selected:
+      single:
         'bg-indigo-600 hover:bg-indigo-700 focus:ring-indigo-500 text-white',
+      gradient: 'gradient focus:ring-indigo-500 text-white',
+      selected: '',
       unselected:
         'bg-gray-400 hover:bg-gray-500 focus:ring-indigo-500 text-white',
     };
@@ -30,4 +36,23 @@ export default {
 };
 </script>
 
-<style scoped></style>
+<style scoped>
+.gradient {
+  background: rgb(11, 9, 33);
+  background: linear-gradient(
+    270deg,
+    rgba(11, 9, 33, 1) 0%,
+    rgba(79, 70, 229, 1) 100%
+  );
+
+}
+
+.gradient:hover {
+  background: rgb(11, 9, 33);
+  background: linear-gradient(
+    90deg,
+    rgba(11, 9, 33, 1) 0%,
+    rgba(79, 70, 229, 1) 100%
+  );
+}
+</style>
