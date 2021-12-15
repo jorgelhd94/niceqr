@@ -1,10 +1,10 @@
 <template>
   <div>
     <color-input
-      class="my-2 ml-2"
+      class="my-2 ml-2 border-2 border-red-200 rounded-xl"
       v-model="colorData"
       format="hex string"
-      position="top"
+      position="top right"
     />
   </div>
 </template>
@@ -19,6 +19,7 @@ export default {
   props: {
     color: String,
   },
+  emits: ['colorChange'],
   data() {
     return {
       colorData: this.color,

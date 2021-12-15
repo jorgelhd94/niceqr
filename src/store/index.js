@@ -17,7 +17,7 @@ export default createStore({
           // crossOrigin: 'anonymous',
         },
         dotsOptions: {
-          color: '#41b583',
+          color: '#2a5686',
           // gradient: {
           //   type: 'linear', // 'radial'
           //   rotation: 0,
@@ -58,9 +58,39 @@ export default createStore({
     updateData(state, data) {
       state.options.data = data;
     },
+    updateBackground(state, data) {
+      if (data.backgroundType === 'color') {
+        state.options.backgroundOptions.color = data.color;
+        state.options.backgroundOptions.gradient = null;
+      } else if (data.backgroundType === 'gradient') {
+        state.options.backgroundOptions.gradient = {
+          type: data.gradient.aspect,
+          rotation: data.gradient.rotation,
+          colorStops: [
+            { offset: 0, color: data.gradient.color1 },
+            { offset: 1, color: data.gradient.color2 },
+          ],
+        };
+        state.options.backgroundOptions.color = null;
+      }
+    },
     updateDots(state, data) {
       state.options.dotsOptions.type = data.type;
-      state.options.dotsOptions.color = data.color;
+
+      if (data.backgroundType === 'color') {
+        state.options.dotsOptions.color = data.color;
+        state.options.dotsOptions.gradient = null;
+      } else if (data.backgroundType === 'gradient') {
+        state.options.dotsOptions.gradient = {
+          type: data.gradient.aspect,
+          rotation: data.gradient.rotation,
+          colorStops: [
+            { offset: 0, color: data.gradient.color1 },
+            { offset: 1, color: data.gradient.color2 },
+          ],
+        };
+        state.options.dotsOptions.color = null;
+      }
     },
   },
   getters: {},

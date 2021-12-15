@@ -1,23 +1,6 @@
 <template>
   <div class="flex flex-nowrap flex-col mx-4 mb-4">
-    <!-- Type -->
-    <div class="flex-1 m-2">
-      <label class="text-gray-700" for="dotsType">
-        Type
-        <select
-          id="dotsType"
-          class="block w-52 py-2 px-3 mt-2 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-primary-500 focus:border-primary-500"
-          name="dotsType"
-          v-model="options.type"
-        >
-          <option v-for="elem in typeList" :key="elem" :value="elem">
-            {{ customType(elem) }}
-          </option>
-        </select>
-      </label>
-    </div>
-
-    <!-- Color & Gradient -->
+     <!-- Color & Gradient -->
     <div class="flex-1 m-2">
       <color-menu :options="options" @set-options="setOptions($event)" />
     </div>
@@ -28,31 +11,22 @@
 import ColorMenu from '@/components/UI/ColorMenu/ColorMenu.vue';
 
 export default {
-  name: 'DotsControl',
+  name: 'BackgroundControl',
   components: {
     ColorMenu,
   },
   data() {
     return {
       options: {
-        type: this.$store.state.options.dotsOptions.type,
         backgroundType: 'color', // color, gradient
-        color: this.$store.state.options.dotsOptions.color,
+        color: this.$store.state.options.backgroundOptions.color,
         gradient: { // Default
           aspect: 'linear',
           rotation: 120,
-          color1: '#cccef4',
-          color2: '#154b84',
+          color1: '#ffffff',
+          color2: '#9ca8b5',
         },
       },
-      typeList: [
-        'rounded',
-        'dots',
-        'classy',
-        'classy-rounded',
-        'square',
-        'extra-rounded',
-      ],
     };
   },
   computed: {
@@ -77,7 +51,7 @@ export default {
   watch: {
     options: {
       handler() {
-        this.$store.commit('updateDots', this.options);
+        this.$store.commit('updateBackground', this.options);
       },
       deep: true,
     },

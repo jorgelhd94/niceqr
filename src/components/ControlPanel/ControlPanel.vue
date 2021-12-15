@@ -25,6 +25,24 @@
       :open="listAccordion[0]"
       @toogle="toogle(0, $event)"
     >
+      <background-control />
+    </accordion-item>
+
+    <!-- Dots -->
+    <accordion-item
+      title="Dots"
+      :open="listAccordion[1]"
+      @toogle="toogle(1, $event)"
+    >
+      <dots-control />
+    </accordion-item>
+
+    <!-- Corner Dot -->
+    <accordion-item
+      title="Corner Dot"
+      :open="listAccordion[2]"
+      @toogle="toogle(2, $event)"
+    >
       <p class="leading-6 font-light pl-9 text-justify">
         Our asked sex point her she seems. New plenty she horses parish design
         you. Stuff sight equal of my woody. Him children bringing goodness
@@ -37,20 +55,11 @@
       </button>
     </accordion-item>
 
-    <!-- Dots -->
+    <!-- Corner Square -->
     <accordion-item
-      title="Dots"
-      :open="listAccordion[1]"
-      @toogle="toogle(1, $event)"
-    >
-      <dots-control />
-    </accordion-item>
-
-    <!-- Corners -->
-    <accordion-item
-      title="Corners"
-      :open="listAccordion[2]"
-      @toogle="toogle(2, $event)"
+      title="Corner Square"
+      :open="listAccordion[3]"
+      @toogle="toogle(3, $event)"
     >
       <p class="leading-6 font-light pl-9 text-justify">
         Our asked sex point her she seems. New plenty she horses parish design
@@ -67,8 +76,8 @@
     <!-- Logo -->
     <accordion-item
       title="Logo"
-      :open="listAccordion[3]"
-      @toogle="toogle(3, $event)"
+      :open="listAccordion[4]"
+      @toogle="toogle(4, $event)"
     >
       <p class="leading-6 font-light pl-9 text-justify">
         Our asked sex point her she seems. New plenty she horses parish design
@@ -87,17 +96,19 @@
 <script>
 import { mapState } from 'vuex';
 import AccordionItem from '@/components/UI/Accordion/AccordionItem/AccordionItem.vue';
+import BackgroundControl from './Controls/BackgroundControl.vue';
 import DotsControl from './Controls/DotsControl.vue';
 
 export default {
   name: 'ControlPanel',
   data() {
     return {
-      listAccordion: new Array(4).fill(false),
+      listAccordion: new Array(5).fill(false),
     };
   },
   components: {
     AccordionItem,
+    BackgroundControl,
     DotsControl,
   },
   computed: {
