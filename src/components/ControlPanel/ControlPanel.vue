@@ -43,16 +43,7 @@
       :open="listAccordion[2]"
       @toogle="toogle(2, $event)"
     >
-      <p class="leading-6 font-light pl-9 text-justify">
-        Our asked sex point her she seems. New plenty she horses parish design
-        you. Stuff sight equal of my woody. Him children bringing goodness
-        suitable she entirely put far daughter.
-      </p>
-      <button
-        class="rounded-full bg-indigo-600 text-white font-medium font-lg px-6 py-2 my-5 ml-9"
-      >
-        Learn more
-      </button>
+      <corners-dot-control />
     </accordion-item>
 
     <!-- Corner Square -->
@@ -61,16 +52,7 @@
       :open="listAccordion[3]"
       @toogle="toogle(3, $event)"
     >
-      <p class="leading-6 font-light pl-9 text-justify">
-        Our asked sex point her she seems. New plenty she horses parish design
-        you. Stuff sight equal of my woody. Him children bringing goodness
-        suitable she entirely put far daughter.
-      </p>
-      <button
-        class="rounded-full bg-indigo-600 text-white font-medium font-lg px-6 py-2 my-5 ml-9"
-      >
-        Learn more
-      </button>
+      <corners-square-control />
     </accordion-item>
 
     <!-- Logo -->
@@ -98,6 +80,8 @@ import { mapState } from 'vuex';
 import AccordionItem from '@/components/UI/Accordion/AccordionItem/AccordionItem.vue';
 import BackgroundControl from './Controls/BackgroundControl.vue';
 import DotsControl from './Controls/DotsControl.vue';
+import CornersDotControl from './Controls/CornersDotControl.vue';
+import CornersSquareControl from './Controls/CornersSquareControl.vue';
 
 export default {
   name: 'ControlPanel',
@@ -110,6 +94,8 @@ export default {
     AccordionItem,
     BackgroundControl,
     DotsControl,
+    CornersDotControl,
+    CornersSquareControl,
   },
   computed: {
     ...mapState({

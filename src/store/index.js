@@ -74,22 +74,32 @@ export default createStore({
         state.options.backgroundOptions.color = null;
       }
     },
-    updateDots(state, data) {
-      state.options.dotsOptions.type = data.type;
+    updateCornersAndDots(state, payload) {
+      const listKeys = [
+        'dotsOptions',
+        'cornersDotOptions',
+        'cornersSquareOptions',
+      ];
+      const key = Object.keys(payload)[0];
+      const data = payload[key];
 
-      if (data.backgroundType === 'color') {
-        state.options.dotsOptions.color = data.color;
-        state.options.dotsOptions.gradient = null;
-      } else if (data.backgroundType === 'gradient') {
-        state.options.dotsOptions.gradient = {
-          type: data.gradient.aspect,
-          rotation: data.gradient.rotation,
-          colorStops: [
-            { offset: 0, color: data.gradient.color1 },
-            { offset: 1, color: data.gradient.color2 },
-          ],
-        };
-        state.options.dotsOptions.color = null;
+      if (listKeys.includes(key)) {
+        state.options[key].type = data.type;
+
+        if (data.backgroundType === 'color') {
+          state.options[key].color = data.color;
+          state.options[key].gradient = null;
+        } else if (data.backgroundType === 'gradient') {
+          state.options[key].gradient = {
+            type: data.gradient.aspect,
+            rotation: data.gradient.rotation,
+            colorStops: [
+              { offset: 0, color: data.gradient.color1 },
+              { offset: 1, color: data.gradient.color2 },
+            ],
+          };
+          state.options[key].color = null;
+        }
       }
     },
   },

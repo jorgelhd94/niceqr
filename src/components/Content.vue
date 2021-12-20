@@ -8,6 +8,7 @@
       </div>
       <div class="flex-1 order-1 lg:order-2 px-6 py-6">
         <QR />
+        <DownloadButton />
       </div>
     </div>
 
@@ -20,6 +21,7 @@ import Logo from './Logo.vue';
 import FooterCustom from './Footer.vue';
 import QR from './QR/QR.vue';
 import ControlPanel from './ControlPanel/ControlPanel.vue';
+import DownloadButton from './DownloadButton/DownloadButton.vue';
 
 export default {
   name: 'Content',
@@ -28,6 +30,7 @@ export default {
     FooterCustom,
     QR,
     ControlPanel,
+    DownloadButton,
   },
   data() {
     return {

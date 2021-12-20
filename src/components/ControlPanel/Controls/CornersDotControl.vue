@@ -2,12 +2,12 @@
   <div class="flex flex-nowrap flex-col mx-4 mb-4">
     <!-- Type -->
     <div class="flex-1 m-2">
-      <label class="text-gray-700" for="dotsType">
+      <label class="text-gray-700" for="cornersDotsType">
         Type
         <select
-          id="dotsType"
+          id="cornersDotsType"
           class="block w-52 py-2 px-3 mt-2 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-primary-500 focus:border-primary-500"
-          name="dotsType"
+          name="cornersDotsType"
           v-model="options.type"
         >
           <option v-for="elem in typeList" :key="elem" :value="elem">
@@ -28,16 +28,16 @@
 import ColorMenu from '@/components/UI/ColorMenu/ColorMenu.vue';
 
 export default {
-  name: 'DotsControl',
+  name: 'CornersDotControl',
   components: {
     ColorMenu,
   },
   data() {
     return {
       options: {
-        type: this.$store.state.options.dotsOptions.type,
+        type: this.$store.state.options.cornersDotOptions.type,
         backgroundType: 'color', // color, gradient
-        color: this.$store.state.options.dotsOptions.color,
+        color: this.$store.state.options.cornersDotOptions.color,
         gradient: {
           // Default
           aspect: 'linear',
@@ -46,14 +46,7 @@ export default {
           color2: '#154b84',
         },
       },
-      typeList: [
-        'rounded',
-        'dots',
-        'classy',
-        'classy-rounded',
-        'square',
-        'extra-rounded',
-      ],
+      typeList: ['dot', 'square'],
     };
   },
   computed: {
@@ -79,7 +72,7 @@ export default {
     options: {
       handler() {
         this.$store.commit('updateCornersAndDots', {
-          dotsOptions: this.options,
+          cornersDotOptions: this.options,
         });
       },
       deep: true,
