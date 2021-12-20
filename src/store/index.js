@@ -13,8 +13,8 @@ export default createStore({
         imageOptions: {
           hideBackgroundDots: true,
           imageSize: 0.4,
-          margin: 20,
-          // crossOrigin: 'anonymous',
+          margin: 10,
+          crossOrigin: 'anonymous',
         },
         dotsOptions: {
           color: '#2a5686',
@@ -57,6 +57,9 @@ export default createStore({
   mutations: {
     updateData(state, data) {
       state.options.data = data;
+    },
+    updateLogo(state, url) {
+      state.options.image =  url;
     },
     updateBackground(state, data) {
       if (data.backgroundType === 'color') {
