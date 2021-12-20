@@ -47,11 +47,15 @@ export default {
   },
   props: {
     options: Object,
+    selectType: {
+      type: String,
+      default: 'single',
+    },
   },
   emits: ['setOptions'],
   data() {
     return {
-      singleColor: true,
+      singleColor: this.selectType === 'gradient' ? false : true,
       optionsLocal: { ...this.options },
     };
   },

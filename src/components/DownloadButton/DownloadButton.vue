@@ -45,7 +45,7 @@
     </div>
     <div class="flex-initial">
       <select
-        class="block w-24 text-white py-2 px-3 border border-gray-300 bg-indigo-600 rounded-full shadow-sm focus:outline-none focus:ring-primary-500 focus:border-primary-500"
+        class="block w-24 text-white text-center py-2 px-3 border border-gray-300 bg-indigo-600 rounded-full shadow-sm focus:outline-none focus:ring-primary-500 focus:border-primary-500"
         name="extension"
         v-model="extensionSelect"
       >

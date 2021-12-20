@@ -19,7 +19,11 @@
 
     <!-- Color & Gradient -->
     <div class="flex-1 m-2">
-      <color-menu :options="options" @set-options="setOptions($event)" />
+      <color-menu
+        :options="options"
+        selectType="gradient"
+        @set-options="setOptions($event)"
+      />
     </div>
   </div>
 </template>
@@ -36,8 +40,8 @@ export default {
     return {
       options: {
         type: this.$store.state.options.cornersSquareOptions.type,
-        backgroundType: 'color', // color, gradient
-        color: this.$store.state.options.cornersSquareOptions.color,
+        backgroundType: 'gradient', // color, gradient
+        color: '#35495E',
         gradient: {
           // Default
           aspect: 'linear',

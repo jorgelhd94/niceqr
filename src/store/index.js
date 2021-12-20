@@ -8,12 +8,12 @@ export default createStore({
         height: 250,
         type: 'svg',
         data: 'Enter your text here',
-        image: '/favicon.ico',
+        image: '',
         // margin: 10,
         imageOptions: {
           hideBackgroundDots: true,
           imageSize: 0.4,
-          margin: 10,
+          margin: 2,
           crossOrigin: 'anonymous',
         },
         dotsOptions: {
@@ -23,7 +23,7 @@ export default createStore({
           //   rotation: 0,
           //   colorStops: [{ offset: 0, color: '#8688B2' }, { offset: 1, color: '#77779C' }]
           // },
-          type: 'rounded',
+          type: 'extra-rounded',
         },
         backgroundOptions: {
           color: '#ffffff',
@@ -34,16 +34,16 @@ export default createStore({
           // },
         },
         cornersSquareOptions: {
-          color: '#35495E',
-          type: 'extra-rounded',
-          // gradient: {
-          //   type: 'linear', // 'radial'
-          //   rotation: 180,
-          //   colorStops: [{ offset: 0, color: '#25456e' }, { offset: 1, color: '#4267b2' }]
-          // },
+          // color: '#35495E',
+          type: 'dot',
+          gradient: {
+            type: 'linear', // 'radial'
+            rotation: 120,
+            colorStops: [{ offset: 0, color: '#cccef4' }, { offset: 1, color: '#154b84' }]
+          },
         },
         cornersDotOptions: {
-          color: '#35495E',
+          color: '#79b3ff',
           type: 'dot',
           // gradient: {
           //   type: 'linear', // 'radial'
@@ -59,7 +59,16 @@ export default createStore({
       state.options.data = data;
     },
     updateLogo(state, url) {
-      state.options.image =  url;
+      state.options.image = url;
+    },
+    updateimageOptions(state, data) {
+      if (data.imageSize > 0 && data.imageSize <= 1) {
+        state.options.imageOptions.imageSize = data.imageSize;
+      }
+
+      if (data.imageSize > 0 && data.imageSize <= 100) {
+        state.options.imageOptions.margin = data.margin;
+      }
     },
     updateBackground(state, data) {
       if (data.backgroundType === 'color') {
