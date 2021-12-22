@@ -19,6 +19,9 @@ export default {
   },
   mounted: function () {
     this.qrCode = new QRCodeStyling(this.options);
+    this.qrCode.update({
+      data: 'Created by JCode Studio',
+    });
     this.qrCode.append(this.$refs['qrCode']);
     this.setClassToQR();
   },
@@ -30,7 +33,7 @@ export default {
           this.qrCode.update(this.options);
         } else {
           this.qrCode.update({
-            data: 'JCode Studio',
+            data: 'Created by JCode Studio',
           });
         }
         this.setClassToQR();

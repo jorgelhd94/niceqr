@@ -7,7 +7,7 @@ export default createStore({
         width: 250,
         height: 250,
         type: 'svg',
-        data: 'Enter your text here',
+        data: '',
         image: '',
         // margin: 10,
         imageOptions: {

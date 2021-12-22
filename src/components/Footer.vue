@@ -1,6 +1,7 @@
 <template>
-  <div class="text-center p-6">
-    <h3 class="text-lg">Copyright 2022 - Created By JCode Studio</h3>
+  <div class="flex flex-nowrap justify-center p-6 mt-4">
+    <h3 class="text-lg self-center mr-3">Copyright 2022 - Created By</h3>
+    <img src="@/assets/img/brand2.png" width="100" />
   </div>
 </template>
 
