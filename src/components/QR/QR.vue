@@ -29,13 +29,11 @@ export default {
     options: {
       handler() {
         const content = this.options.data;
-        if (content) {
-          this.qrCode.update(this.options);
-        } else {
-          this.qrCode.update({
-            data: 'Created by JCode Studio',
-          });
+        let copyOptions = { ...this.options };
+        if (!content) {
+          copyOptions.data = 'Created by JCode Studio';
         }
+        this.qrCode.update(copyOptions);
         this.setClassToQR();
       },
       deep: true,
