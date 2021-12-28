@@ -78,6 +78,13 @@ export default {
   methods: {
     async download() {
       this.qrCode = new QRCodeStyling(this.options);
+
+      if (!this.options.data) {
+        this.qrCode.update({
+          data: 'Created by JCode Studio',
+        });
+      }
+
       this.isDownload = true;
       await this.qrCode.download({ extension: this.extensionSelect });
       this.isDownload = false;
