@@ -4,8 +4,8 @@ export default createStore({
   state() {
     return {
       options: {
-        width: 250,
-        height: 250,
+        width: 230,
+        height: 230,
         type: 'svg',
         data: '',
         image: '',

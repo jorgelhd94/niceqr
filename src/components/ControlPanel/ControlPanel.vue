@@ -18,51 +18,53 @@
     </div>
 
     <!-- Options -->
+    <p class="text-gray-700 p-5">Customize</p>
+    <div class="bg-gray-50">
+      <!-- Background -->
+      <accordion-item
+        title="Background"
+        :open="listAccordion[0]"
+        @toogle="toogle(0, $event)"
+      >
+        <background-control />
+      </accordion-item>
 
-    <!-- Background -->
-    <accordion-item
-      title="Background"
-      :open="listAccordion[0]"
-      @toogle="toogle(0, $event)"
-    >
-      <background-control />
-    </accordion-item>
+      <!-- Dots -->
+      <accordion-item
+        title="Dots"
+        :open="listAccordion[1]"
+        @toogle="toogle(1, $event)"
+      >
+        <dots-control />
+      </accordion-item>
 
-    <!-- Dots -->
-    <accordion-item
-      title="Dots"
-      :open="listAccordion[1]"
-      @toogle="toogle(1, $event)"
-    >
-      <dots-control />
-    </accordion-item>
+      <!-- Corner Dot -->
+      <accordion-item
+        title="Corner Dot"
+        :open="listAccordion[2]"
+        @toogle="toogle(2, $event)"
+      >
+        <corners-dot-control />
+      </accordion-item>
 
-    <!-- Corner Dot -->
-    <accordion-item
-      title="Corner Dot"
-      :open="listAccordion[2]"
-      @toogle="toogle(2, $event)"
-    >
-      <corners-dot-control />
-    </accordion-item>
+      <!-- Corner Square -->
+      <accordion-item
+        title="Corner Square"
+        :open="listAccordion[3]"
+        @toogle="toogle(3, $event)"
+      >
+        <corners-square-control />
+      </accordion-item>
 
-    <!-- Corner Square -->
-    <accordion-item
-      title="Corner Square"
-      :open="listAccordion[3]"
-      @toogle="toogle(3, $event)"
-    >
-      <corners-square-control />
-    </accordion-item>
-
-    <!-- Logo -->
-    <accordion-item
-      title="Logo"
-      :open="listAccordion[4]"
-      @toogle="toogle(4, $event)"
-    >
-      <logo-control />
-    </accordion-item>
+      <!-- Logo -->
+      <accordion-item
+        title="Logo"
+        :open="listAccordion[4]"
+        @toogle="toogle(4, $event)"
+      >
+        <logo-control />
+      </accordion-item>
+    </div>
   </div>
 </template>
 
