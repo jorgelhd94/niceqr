@@ -1,6 +1,6 @@
 # Nice QR
 
-NiceQR is a vue3 app to generate beautiful qr codes. It use the [qr-code-styling library](https://github.com/kozakdenys/qr-code-styling).
+NiceQR is a Vue 3 app to generate beautiful qr codes. It use the [qr-code-styling library](https://github.com/kozakdenys/qr-code-styling).
 
 This project is hosted [here](https://niceqr.netlify.app/).
 
